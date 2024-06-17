@@ -16,14 +16,12 @@ import CompanySelfManage from "@/views/company/companySelfManage.vue"
 import TouristHome from "@/views/tourist/touristHome.vue"
 import TouristSelfInformation from "@/views/tourist/touristSelfInformation.vue"
 import TouristTicketManage from "@/views/tourist/touristTicketManagement.vue"
-import TouristOrderManage from "@/views/tourist/touristOrderManagement.vue"
 import TouristPurchaseManage from "@/views/tourist/touristPurchaseManage.vue"
 import TouristSelfManage from "@/views/tourist/touristSelfManagement.vue"
 
 import AdminHome from "@/views/admin/adminHome.vue"
 import AdminSelfManage from "@/views/admin/adminSelfManage.vue"
 import AdminLuggageManage from "@/views/admin/adminLuggageManage.vue"
-import AdminParkingManage from "@/views/admin/adminParkingManage.vue"
 import AdminApplyManage from "@/views/admin/adminApplyManage.vue"
 
 const routes = [
@@ -108,12 +106,6 @@ const routes = [
     },
 
     {
-        name: "TouristOrderManage",
-        path: '/tourist/ordermanage',
-        component: TouristOrderManage,
-    },
-
-    {
         name: "TouristPurchaseManage",
         path: '/tourist/purchasemanage',
         component: TouristPurchaseManage,
@@ -141,12 +133,6 @@ const routes = [
         name: "AdminLuggageManage",
         path: '/admin/luggagemanage',
         component: AdminLuggageManage,
-    },
-
-    {
-        name: "AdminParkingManage",
-        path: '/admin/parkingmanage',
-        component: AdminParkingManage,
     },
 
     {
