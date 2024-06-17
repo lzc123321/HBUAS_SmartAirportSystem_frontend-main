@@ -56,7 +56,8 @@
                         <el-input v-model="registerForm.adminRealID" placeholder="请输入员工身份证号"></el-input>
                     </el-form-item>
 
-                    <el-form-item label="员工职位" prop="positionpost" v-if="registerForm.uType == 'admin'" class="register_input_box">
+                    <el-form-item label="员工职位" prop="
+                    " v-if="registerForm.uType == 'admin'" class="register_input_box">
                         <!--el-input v-model="registerForm.positionpost" placeholder="请输入员工职位"></el-input-->
                         <el-select v-model="registerForm.positionpost" class="m-2" placeholder="Select">
                             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
@@ -216,11 +217,6 @@ export default {
                     { validator: validateName, trigger: 'blur' }
                 ],
 
-                // merchantName: [
-                //     { required: true, message: '商户名称不能为空', trigger: 'blur' },
-                //     { validator: validateName2, trigger: 'blur' }
-                // ],
-
                 adminID: [
                     { required: true, message: '员工号不能为空', trigger: 'blur' },
                     { validator: validateAdminID, trigger: 'blur' }
@@ -243,16 +239,6 @@ export default {
                 uType: [
                     { required: true, message: '用户类型不能为空', trigger: 'blur' }
                 ],
-
-                // merchantRealname: [
-                //     { required: true, message: '商户真实姓名不能为空', trigger: 'blur'},
-                //     { validator: validateRealName, trigger: 'blur'}
-                // ],
-
-                // merchantRealID: [
-                //     {required: true, message: '商户真实身份证号不能为空', trigger: 'blur'},
-                //     {validator: validateRealID, trigger: 'blur'}
-                // ],
 
                 adminRealID: [
                     {required: true, message: '工作人员身份证号不能为空', trigger: 'blur'},
@@ -285,11 +271,6 @@ export default {
                             break;
                         case "company":
                             this.companyRegister();
-                            break;
-                        case "merchant":
-                            //this.$router.push('/login');
-                            this.merchantRegister();
-                            //this.$message.success(this.registerForm.merchantName);
                             break;
                     }
                     //router.push('/');

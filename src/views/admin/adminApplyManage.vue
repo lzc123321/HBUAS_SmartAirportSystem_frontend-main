@@ -20,20 +20,13 @@
                   </template>
                   <el-menu-item index="/admin">返回首页</el-menu-item>
                 </el-sub-menu>
-                <!-- <el-sub-menu index="2">
-                  <template #title>
-                    <el-icon><location /></el-icon>
-                    <span>停车位管理</span>
-                  </template>
-                  <el-menu-item index="/admin/parkingManage">停车位管理</el-menu-item>
-                </el-sub-menu>
                 <el-sub-menu index="3">
                   <template #title>
                     <el-icon><document /></el-icon>
                     <span>行李信息管理</span>
                   </template>
                   <el-menu-item index="/admin/luggagemanage">行李管理</el-menu-item>
-                </el-sub-menu> -->
+                </el-sub-menu>
                 <el-sub-menu index="4">
                   <template #title>
                     <el-icon><Promotion /></el-icon>
@@ -59,115 +52,11 @@
           </el-aside>  
           <el-main>
             <el-tabs tab-position="left" class="card">
-                <el-tab-pane label="添加报修申请" name="first" >
-                    <div class="goods"  @keyup.enter="keyPressed">
-                            <h4>添加报修申请</h4>
-                            <el-form :model="recordForm" label-width="100px" status-icon="true">
-
-                                <el-form-item label="设备名称" class="login_input_box" prop="devicename">
-                                    <el-input v-model="recordForm.devicename" placeholder="请输入设备名称"></el-input>
-                                </el-form-item>
-
-                                <el-form-item label="设备信息" class="login_input_box" prop="deviceinfo">
-                                    <el-input v-model="recordForm.deviceinfo" placeholder="请输入设备信息"></el-input>
-                                </el-form-item>
-
-                                <el-form-item label="设备位置" class="login_input_box" prop="location">
-                                    <el-input v-model="recordForm.location" placeholder="请输入设备位置"></el-input>
-                                </el-form-item>
-
-                                <div class="button">
-                                    <el-button @click="addRecord" class="button" type="primary">添加报修申请</el-button>
-                                </div>
-                            </el-form>
-                        </div>
-                </el-tab-pane>
-                <el-tab-pane label="查看报修申请" name="second">
-                    <el-table :data="recordList" stripe style="width: 100%">
-                            <el-table-column prop="recordid" label="报修申请ID" width="120" />
-                            <el-table-column prop="devicename" label="设备名称" width="120"/>
-                            <el-table-column prop="deviceinfo" label="设备情况" width="120"/> 
-                            <el-table-column prop="location" label="设备位置" width="120"/>
-                            <el-table-column prop="approved" label="处理意见" width="120">
-                                <template v-slot:default="scope">
-                                    <!-- 判断 approved 的值 -->
-                                    <span v-if="scope.approved == 0">同意</span>
-                                    <!-- 其他内容保持不变 -->
-                                </template>
-                            </el-table-column>
-                            <el-table-column fixed="right" label="Opeations" width="120">
-                                <template #default="scope">
-                                    <el-button link type="primary" style="margin-left: 16px" size="small" @click="openRecordDiager(scope.row)" v-if="positionpost== 0">审核报修申请</el-button>
-                                    <el-button link type="primary" style="margin-left: 16px" size="small" @click="deleteRecord(scope.row)">删除报修申请</el-button>
-                                </template>
-                            </el-table-column>
-                    </el-table>
-                    <div class="button">
-                        <el-button @click="checkRecord" class="button" type="primary">查看报修请求</el-button>
-                    </div>
-                    <el-drawer
-                        v-model="drawer"
-                        title="审核报修申请"
-                        :direction="direction"
-                        >
-                        <el-form :model="recordForm" label-width="100px" status-icon="true">
-                            <el-form-item label="审核意见" class="login_input_box" prop="deviceinfo">
-                                <el-select v-model="recordForm.approved" class="m-2" placeholder="Select">
-                                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
-                                </el-select>
-                            </el-form-item>
-                            <div class="button">
-                                <el-button @click="solveRecord" class="button" type="primary">审核报修申请</el-button>
-                            </div>
-                        </el-form>
-                    </el-drawer>    
-                </el-tab-pane>
-                <!-- <el-tab-pane label="查看入驻申请" name="fourth">
-                    <el-table :data="requestList" stripe style="width: 100%">
-                            <el-table-column prop="requestid" label="入驻申请ID" width="120" />
-                            <el-table-column prop="realname" label="商户真实姓名" width="120"/>
-                            <el-table-column prop="idnumber" label="商户身份证号" width="120"/>
-                            <el-table-column prop="shopname" label="商店名称" width="120"/>
-                            <el-table-column prop="email" label="商户邮箱" width="120"/>
-                            <el-table-column fixed="right" label="Opeations" width="120">
-                                <template #default="scope">
-                                    <el-button link type="primary" style="margin-left: 16px" size="small" @click="openRequestDiager(scope.row)" v-if="positionpost== 0">审核入驻申请</el-button>
-                                </template>
-                            </el-table-column>
-                    </el-table>
-                    <div class="button">
-                        <el-button @click="checkRequest" class="button" type="primary">查看入驻请求</el-button>
-                    </div>
-                    <el-drawer
-                        v-model="drawer2"
-                        title="审核入驻申请"
-                        :direction="direction"
-                        >
-                        <el-form :model="requestForm" label-width="100px" status-icon="true">
-
-                            <el-form-item label="审核意见" class="login_input_box" prop="deviceinfo">
-                                <el-select v-model="requestForm.approved" class="m-2" placeholder="Select">
-                                    <el-option v-for="item in newoptions" :key="item.value" :label="item.label" :value="item.value"/>
-                                </el-select>
-                            </el-form-item>
-
-                            <div class="button">
-                                <el-button @click="solveRequest" class="button" type="primary">审核入驻申请</el-button>
-                            </div>
-                        </el-form>
-                    </el-drawer>  
-                </el-tab-pane> -->
                 <el-tab-pane label="查看财务报表" name="seventh">
                     <el-row>
                         <el-col :span="6">
                             <el-statistic title="机票售卖总收入" :value="this.ticket" />
                         </el-col>
-                        <!-- <el-col :span="6">
-                            <el-statistic title="商品售卖总收入" :value="this.commodity" />
-                        </el-col>
-                        <el-col :span="6">
-                            <el-statistic title="停车订单总收入" :value="this.parking" />
-                        </el-col> -->
                         <div class="button">
                                 <el-button @click="checkMoney" class="button" type="primary">查看财务报表</el-button>
                             </div>
@@ -186,8 +75,6 @@ import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
   const direction = ref("btt");
   const position = window.localStorage.getItem("positionpost");
-  //import companyChange from '@/components/companyChange.vue';
-  //import { useStore } from 'vuex';
   export default{
   //
     data() {

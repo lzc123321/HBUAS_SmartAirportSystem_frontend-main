@@ -124,10 +124,7 @@
   import { ElMessage } from 'element-plus';
   import qs from 'qs';
   const position = window.localStorage.getItem("positionpost");
-  //import companyChange from '@/components/companyChange.vue';
-  //import { useStore } from 'vuex';
   export default{
-  //
     data() {
 
         return {
