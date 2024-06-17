@@ -193,37 +193,6 @@ import { ref } from 'vue';
                             }
                         });
     },
-        openRecordDiager(row){
-            if(!row.recordid)
-            {
-                ElMessage({
-                        type: 'error',
-                        message: "报修申请信息不存在",
-                        duration: 2000,
-                    })
-            }
-            else
-            {
-                this.drawer = true;
-                window.localStorage.setItem("recordid", row.recordid);
-            }
-        },
-
-        openRequestDiager(row){
-            if(!row.requestid)
-            {
-                ElMessage({
-                        type: 'error',
-                        message: "入驻申请信息不存在",
-                        duration: 2000,
-                    })
-            }
-            else
-            {
-                this.drawer2 = true;
-                window.localStorage.setItem("requestid", row.requestid);
-            }
-        },
 
         checkRecord(){
                 const admintoken = window.localStorage.getItem("admintoken");
