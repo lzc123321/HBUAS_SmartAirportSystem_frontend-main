@@ -1,18 +1,5 @@
-//import Vue from 'vue'
-//import app from '../App'
 import { createStore } from 'vuex'
 
-
-/*
-const data = {
-    modules: {
-        user,
-        merchant,
-        admin,
-        company,
-    }
-}
-*/
 export default createStore({
     state: {
         company:{

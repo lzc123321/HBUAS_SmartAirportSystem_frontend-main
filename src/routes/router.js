@@ -20,11 +20,6 @@ import TouristOrderManage from "@/views/tourist/touristOrderManagement.vue"
 import TouristPurchaseManage from "@/views/tourist/touristPurchaseManage.vue"
 import TouristSelfManage from "@/views/tourist/touristSelfManagement.vue"
 
-import MerchantHome from "@/views/merchant/merchantHome.vue"
-import MerchantGoodsManage from "@/views/merchant/merchantGoodsManage.vue"
-import MerchantSelfManage from "@/views/merchant/merchantSelfManage.vue"
-import MerchantOrderManage from "@/views/merchant/merchantOrderManage.vue"
-
 import AdminHome from "@/views/admin/adminHome.vue"
 import AdminSelfManage from "@/views/admin/adminSelfManage.vue"
 import AdminLuggageManage from "@/views/admin/adminLuggageManage.vue"
@@ -128,30 +123,6 @@ const routes = [
         name: "TouristSelfManage",
         path: '/tourist/selfmanage',
         component: TouristSelfManage,
-    },
-
-    {
-        name: "MerchantHome",
-        path: '/merchant',
-        component: MerchantHome,
-    },
-
-    {
-        name: "MerchantGoodsManage",
-        path: '/merchant/goodsmanage',
-        component: MerchantGoodsManage,
-    },
-
-    {
-        name: "MerchantSelfManage",
-        path: '/merchant/selfmanage',
-        component: MerchantSelfManage,
-    },
-
-    {
-        name: "MerchantOrderManage",
-        path: '/merchant/ordermanage',
-        component: MerchantOrderManage,
     },
 
     {
