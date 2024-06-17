@@ -93,30 +93,10 @@
   </template>
   
   <script>
-  //import companyChange from '@/components/companyChange.vue';
   import { ElMessage } from 'element-plus';
   import qs from 'qs';
-  //import { useStore } from 'vuex';
   export default{
-  //
     data() {
-        var validateRealName = (rule, value, callback) => {
-            const regMerchantRealName = /^[\u4e00-\u9fa5a-zA-Z]{1,30}$/;
-            if (regMerchantRealName.test(value)) {
-                callback();
-            }
-            callback(new Error('姓名只能由中英文组成，不超过30位'));
-        };
-
-        var validateRealID = (rule, value, callback) => {
-            const regMerchantRealID_18 = /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
-            const regMerchantRealID_15 = /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$/;
-            if (regMerchantRealID_15.test(value) || regMerchantRealID_18.test(value)) {
-                callback();
-            }
-            callback(new Error('身份证号不符合规范，请输入正确的身份证号'));
-        };
-
         var validateEmail = (rule, value, callback) => {
             const regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
             if (regEmail.test(value)) {
@@ -170,20 +150,6 @@
                 renewpassword:[
                     { required: true, message: '请再次输入新密码', trigger: 'blur' },
                     { validator: validatePass2, trigger: 'blur' }
-                ],
-
-                idnumber:[
-                    { required: true, message: '身份证号不得为空', trigger: 'blur' },
-                    { validator: validateRealID, trigger: 'blur' }
-                ],
-
-                realname:[
-                    { required: true, message: '真实姓名不得为空', trigger: 'blur' },
-                    { validator: validateRealName, trigger: 'blur' }
-                ],
-                
-                positionpost:[
-                    { required: true, message: '职位不得为空', trigger: 'blur' },
                 ]
             }
         }
