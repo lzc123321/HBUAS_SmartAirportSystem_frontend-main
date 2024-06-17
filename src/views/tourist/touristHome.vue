@@ -34,20 +34,6 @@
                 </template>
                 <el-menu-item index="/tourist/ticketmanage">管理机票信息</el-menu-item>
               </el-sub-menu>
-              <!-- <el-sub-menu index="4">
-                <template #title>
-                  <el-icon><FolderChecked /></el-icon>
-                  <span>停车订单管理</span>
-                </template>
-                <el-menu-item index="/tourist/ordermanage">管理停车订单</el-menu-item>
-              </el-sub-menu>
-              <el-sub-menu index="5">
-                <template #title>
-                  <el-icon><CircleCheck /></el-icon>
-                  <span>商品订单管理</span>
-                </template>
-                <el-menu-item index="/tourist/purchasemanage">管理商品订单</el-menu-item>
-              </el-sub-menu> -->
               <el-sub-menu index="6">
                 <template #title>
                   <el-icon><PieChart /></el-icon>
@@ -77,11 +63,8 @@
 </template>
 
 <script>
-//import companyChange from '@/components/companyChange.vue';
-//import { useStore } from 'vuex';
 import qs from 'qs';
 export default{
-//
   data() {
       var ret = 1;
       var today = new Date();

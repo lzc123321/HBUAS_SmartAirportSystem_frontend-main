@@ -56,8 +56,6 @@
   </template>
 
 <script>
-//import companyChange from '@/components/companyChange.vue';
-//import { useStore } from 'vuex';
 import qs from 'qs';
 export default{
   //

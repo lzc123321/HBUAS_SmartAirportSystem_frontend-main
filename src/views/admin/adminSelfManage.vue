@@ -1,129 +1,129 @@
 <template>
     <div class="common-layout">
-      <el-container>
-        <el-header>
-          <div class="headerContainer">
-            <img src="@/assets/logo.png" class="logo" fit="contain"/>
-          </div> 
-        </el-header>
         <el-container>
-          <el-aside width="200px" class="aside">
-            <el-menu
-                class="el-menu-vertical-demo"
-                align="left" 
-                unique-opened :collapse="isCollapse"
-                router>
-                <el-sub-menu index="1">
-                  <template #title>
-                    <el-icon><House /></el-icon>
-                    <span>首页</span>
-                  </template>
-                  <el-menu-item index="/admin">返回首页</el-menu-item>
-                </el-sub-menu>
-                <!-- <el-sub-menu index="2">
-                  <template #title>
-                    <el-icon><location /></el-icon>
-                    <span>停车位管理</span>
-                  </template>
-                  <el-menu-item index="/admin/parkingManage">停车位管理</el-menu-item>
-                </el-sub-menu>
+            <el-header>
+                <div class="headerContainer">
+                    <img src="@/assets/logo.png" class="logo" fit="contain" />
+                </div>
+            </el-header>
+            <el-container>
+                <el-aside width="200px" class="aside">
+                    <el-menu class="el-menu-vertical-demo" align="left" unique-opened :collapse="isCollapse" router>
+                        <el-sub-menu index="1">
+                            <template #title>
+                                <el-icon>
+                                    <House />
+                                </el-icon>
+                                <span>首页</span>
+                            </template>
+                            <el-menu-item index="/admin">返回首页</el-menu-item>
+                        </el-sub-menu>
                 <el-sub-menu index="3">
                   <template #title>
                     <el-icon><document /></el-icon>
                     <span>行李信息管理</span>
                   </template>
                   <el-menu-item index="/admin/luggagemanage">行李管理</el-menu-item>
-                </el-sub-menu> -->
-                <el-sub-menu index="4">
-                  <template #title>
-                    <el-icon><Promotion /></el-icon>
-                    <span>申请管理</span>
-                  </template>
-                  <el-menu-item index="/admin/applymanage" v-if="positionpost== 0 || positionpost==2">申请管理</el-menu-item>
                 </el-sub-menu>
-                <el-sub-menu index="5">
-                  <template #title>
-                    <el-icon><PieChart /></el-icon>
-                    <span>个人中心</span>
-                  </template>
-                  <el-menu-item index="/admin/selfmanage">个人中心</el-menu-item>
+                        <el-sub-menu index="4">
+                            <template #title>
+                                <el-icon>
+                                    <Promotion />
+                                </el-icon>
+                                <span>申请管理</span>
+                            </template>
+                            <el-menu-item index="/admin/applymanage"
+                                v-if="positionpost == 0 || positionpost == 2">申请管理</el-menu-item>
                 </el-sub-menu>
-                <el-sub-menu index="6">
-                  <template #title>
-                    <el-icon><HomeFilled /></el-icon>
-                    <span>退出登录</span>
-                  </template>
-                  <el-menu-item @click="returnHome">退出登录</el-menu-item>
-                </el-sub-menu>
-              </el-menu>
-          </el-aside>  
-          <el-main>
-            <el-tabs tab-position="left" class="card">
-                <el-tab-pane label="修改密码" name="first">
-                    <div class="self"  @keyup.enter="keyPressed">
-                        <h4>修改密码</h4>
-                        <el-form :model="SelfForm" :rules="selfrules" ref="SelfForm" label-width="100px" status-icon="true">
-                            <el-form-item label="密码" class="login_input_box" prop="password">
-                                <el-input v-model="SelfForm.password" placeholder="请输入密码"></el-input>
-                            </el-form-item>
+                        <el-sub-menu index="5">
+                            <template #title>
+                                <el-icon>
+                                    <PieChart />
+                                </el-icon>
+                                <span>个人中心</span>
+                            </template>
+                            <el-menu-item index="/admin/selfmanage">个人中心</el-menu-item>
+                        </el-sub-menu>
+                        <el-sub-menu index="6">
+                            <template #title>
+                                <el-icon>
+                                    <HomeFilled />
+                                </el-icon>
+                                <span>退出登录</span>
+                            </template>
+                            <el-menu-item @click="returnHome">退出登录</el-menu-item>
+                        </el-sub-menu>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <el-tabs tab-position="left" class="card">
+                        <el-tab-pane label="修改密码" name="first">
+                            <div class="self" @keyup.enter="keyPressed">
+                                <h4>修改密码</h4>
+                                <el-form :model="SelfForm" :rules="selfrules" ref="SelfForm" label-width="100px"
+                                    status-icon="true">
+                                    <el-form-item label="密码" class="login_input_box" prop="password">
+                                        <el-input v-model="SelfForm.password" placeholder="请输入密码"></el-input>
+                                    </el-form-item>
 
-                            <el-form-item label="新密码" class="login_input_box" prop="newpassword">
-                                <el-input v-model="SelfForm.newpassword" placeholder="请输入新密码"></el-input>
-                            </el-form-item>
+                                    <el-form-item label="新密码" class="login_input_box" prop="newpassword">
+                                        <el-input v-model="SelfForm.newpassword" placeholder="请输入新密码"></el-input>
+                                    </el-form-item>
 
-                            <el-form-item label="再次输入" class="login_input_box" prop="renewpassword">
-                                <el-input v-model="SelfForm.renewpassword" placeholder="请输入再次输入新密码"></el-input>
-                            </el-form-item>
+                                    <el-form-item label="再次输入" class="login_input_box" prop="renewpassword">
+                                        <el-input v-model="SelfForm.renewpassword" placeholder="请输入再次输入新密码"></el-input>
+                                    </el-form-item>
 
-                            <div class="button">
-                                <el-button @click="changePassword" class="button" type="primary">修改密码</el-button>
+                                    <div class="button">
+                                        <el-button @click="changePassword" class="button"
+                                            type="primary">修改密码</el-button>
+                                    </div>
+                                </el-form>
                             </div>
-                        </el-form>
-                    </div>
-                </el-tab-pane>
-                <el-tab-pane label="修改个人信息" name="second">
-                    <div class="self"  @keyup.enter="keyPressed">
-                        <h4>修改个人信息</h4>
-                        <el-form :model="SelfForm" :rules="selfrules" ref="SelfForm" label-width="100px" status-icon="true">
-                            <el-form-item label="新邮箱" class="login_input_box" prop="newemail">
-                                <el-input v-model="SelfForm.newemail" placeholder="请输入新邮箱"></el-input>
-                            </el-form-item>
+                        </el-tab-pane>
+                        <el-tab-pane label="修改个人信息" name="second">
+                            <div class="self" @keyup.enter="keyPressed">
+                                <h4>修改个人信息</h4>
+                                <el-form :model="SelfForm" :rules="selfrules" ref="SelfForm" label-width="100px"
+                                    status-icon="true">
+                                    <el-form-item label="新邮箱" class="login_input_box" prop="newemail">
+                                        <el-input v-model="SelfForm.newemail" placeholder="请输入新邮箱"></el-input>
+                                    </el-form-item>
 
-                            <el-form-item label="真实姓名" class="login_input_box" prop="realname">
-                                <el-input v-model="SelfForm.realname" placeholder="请输入真实姓名"></el-input>
-                            </el-form-item>
+                                    <el-form-item label="真实姓名" class="login_input_box" prop="realname">
+                                        <el-input v-model="SelfForm.realname" placeholder="请输入真实姓名"></el-input>
+                                    </el-form-item>
 
-                            <el-form-item label="身份证号" class="login_input_box" prop="idnumber">
-                                <el-input v-model="SelfForm.idnumber" placeholder="请输入身份证号"></el-input>
-                            </el-form-item>
+                                    <el-form-item label="身份证号" class="login_input_box" prop="idnumber">
+                                        <el-input v-model="SelfForm.idnumber" placeholder="请输入身份证号"></el-input>
+                                    </el-form-item>
 
-                            <el-form-item label="职位" class="login_input_box" prop="positionpost">
-                                <el-select v-model="SelfForm.positionpost" class="m-2" placeholder="Select">
-                                    <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
-                                </el-select>
-                            </el-form-item>
+                                    <el-form-item label="职位" class="login_input_box" prop="positionpost">
+                                        <el-select v-model="SelfForm.positionpost" class="m-2" placeholder="Select">
+                                            <el-option v-for="item in options" :key="item.value" :label="item.label"
+                                                :value="item.value" />
+                                        </el-select>
+                                    </el-form-item>
 
-                            <div class="button">
-                                <el-button @click="changeSelfInfo" class="button" type="primary">修改个人信息</el-button>
+                                    <div class="button">
+                                        <el-button @click="changeSelfInfo" class="button"
+                                            type="primary">修改个人信息</el-button>
+                                    </div>
+                                </el-form>
                             </div>
-                        </el-form>
-                    </div>
-                </el-tab-pane>
-            </el-tabs>
-          </el-main>
-        </el-container>  
-      </el-container>
+                        </el-tab-pane>
+                    </el-tabs>
+                </el-main>
+            </el-container>
+        </el-container>
     </div>
-  </template>
-  
-  <script>
-  import { ElMessage } from 'element-plus';
-  import qs from 'qs';
-  //import companyChange from '@/components/companyChange.vue';
-  //import { useStore } from 'vuex';
-  const positionpost=window.localStorage.getItem("positionpost");
-  export default{
-  //
+</template>
+
+<script>
+import { ElMessage } from 'element-plus';
+import qs from 'qs';
+const positionpost = window.localStorage.getItem("positionpost");
+export default {
     data() {
         var validateRealName = (rule, value, callback) => {
             const regMerchantRealName = /^[\u4e00-\u9fa5a-zA-Z]{1,30}$/;
@@ -168,7 +168,7 @@
         return {
             positionpost: positionpost,
 
-            options:[
+            options: [
                 {
                     value: 0,
                     label: "ADMINISTRATOR",
@@ -191,8 +191,8 @@
 
             ],
 
-            SelfForm:{
-                email:"",
+            SelfForm: {
+                email: "",
                 newemail: "",
                 password: "",
                 newpassword: "",
@@ -201,95 +201,93 @@
                 idnumber: "",
                 positionpost: "",
             },
-            selfrules:{
-                newemail:[
+            selfrules: {
+                newemail: [
                     { required: true, message: '邮箱地址不能为空', trigger: 'blur' },
                     { validator: validateEmail, trigger: 'blur' }
                 ],
 
-                password:[
+                password: [
                     { required: true, message: '密码不能为空', trigger: 'blur' },
                     { validator: validatePass, trigger: 'blur' }
                 ],
 
-                newpassword:[
+                newpassword: [
                     { required: true, message: '新密码不能为空', trigger: 'blur' },
                     { validator: validatePass, trigger: 'blur' }
                 ],
 
-                renewpassword:[
+                renewpassword: [
                     { required: true, message: '请再次输入新密码', trigger: 'blur' },
                     { validator: validatePass2, trigger: 'blur' }
                 ],
 
-                idnumber:[
+                idnumber: [
                     { required: true, message: '身份证号不得为空', trigger: 'blur' },
                     { validator: validateRealID, trigger: 'blur' }
                 ],
 
-                realname:[
+                realname: [
                     { required: true, message: '真实姓名不得为空', trigger: 'blur' },
                     { validator: validateRealName, trigger: 'blur' }
                 ],
-                
-                positionpost:[
+
+                positionpost: [
                     { required: true, message: '职位不得为空', trigger: 'blur' },
                 ]
             }
         }
     },
-    methods:{
-        returnHome(){
-                    const admintoken = window.localStorage.getItem("admintoken");
-                    this.$http({
-                            method: "post" /* 指明请求方式，可以是 get 或 post */,
-                            url: "/staff/logout" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
-                            data: qs.stringify({
-                            /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
-                                token:admintoken,
-                            }),
-                        })
-                        .then((res) => {
-                            /* res 是 response 的缩写 */
-                            console.log(res.data);
-                            if(!res.data.success){
-                                this.$message.error(res.data.message);
-                            }
-                            else{
-                                this.$message.success(res.data.message);
-                                this.$router.push("/");
-                            }
-                        });
-    },
-        changePassword(){
-            this.$refs.SelfForm.validate((valid)=>{
-                if(valid)
-                {
+    methods: {
+        returnHome() {
+            const admintoken = window.localStorage.getItem("admintoken");
+            this.$http({
+                method: "post" /* 指明请求方式，可以是 get 或 post */,
+                url: "/staff/logout" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
+                data: qs.stringify({
+                    /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
+                    token: admintoken,
+                }),
+            })
+                .then((res) => {
+                    /* res 是 response 的缩写 */
+                    console.log(res.data);
+                    if (!res.data.success) {
+                        this.$message.error(res.data.message);
+                    }
+                    else {
+                        this.$message.success(res.data.message);
+                        this.$router.push("/");
+                    }
+                });
+        },
+        changePassword() {
+            this.$refs.SelfForm.validate((valid) => {
+                if (valid) {
                     const admintoken = window.localStorage.getItem("admintoken");
                     this.$http({
                         method: "post" /* 指明请求方式，可以是 get 或 post */,
                         url: "/staff/updatepassword" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
                         data: qs.stringify({
-                        /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
-                            token:admintoken,
+                            /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
+                            token: admintoken,
                             passwords: this.SelfForm.password,
                             newpasswords: this.SelfForm.newpassword,
                             renewpasswords: this.SelfForm.renewpassword,
                         }),
                     })
-                    .then((res) => {
-                        /* res 是 response 的缩写 */
-                        console.log(res.data);
-                        if(!res.data.success){
-                            this.$message.error(res.data.message);
-                        }
-                        else{
-                            this.$message.success(res.data.message);
-                        }
-                    });
+                        .then((res) => {
+                            /* res 是 response 的缩写 */
+                            console.log(res.data);
+                            if (!res.data.success) {
+                                this.$message.error(res.data.message);
+                            }
+                            else {
+                                this.$message.success(res.data.message);
+                            }
+                        });
                 }
-                else
-                {
+                else {
                     ElMessage({
                         type: 'error',
                         message: "请完成输入",
@@ -299,36 +297,34 @@
             });
         },
 
-        changeSelfInfo(){
-            this.$refs.SelfForm.validate((valid)=>{
-                if(valid)
-                {
+        changeSelfInfo() {
+            this.$refs.SelfForm.validate((valid) => {
+                if (valid) {
                     const admintoken = window.localStorage.getItem("admintoken");
                     this.$http({
                         method: "post" /* 指明请求方式，可以是 get 或 post */,
                         url: "/staff/updatestaff" /* 指明后端 api 路径，由于在 main.js 已指定根路径，因此在此处只需写相对路由 */,
                         data: qs.stringify({
-                        /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
-                            token:admintoken,
+                            /* 需要向后端传输的数据，此处使用 qs.stringify 将 json 数据序列化以发送后端 */
+                            token: admintoken,
                             realname: this.SelfForm.realname,
                             positionpost: this.SelfForm.positionpost,
                             email: this.SelfForm.newemail,
                             idnumber: this.SelfForm.idnumber,
                         }),
                     })
-                    .then((res) => {
-                        /* res 是 response 的缩写 */
-                        console.log(res.data);
-                        if(!res.data.success){
-                            this.$message.error(res.data.message);
-                        }
-                        else{
-                            this.$message.success(res.data.message);
-                        }
-                    });
+                        .then((res) => {
+                            /* res 是 response 的缩写 */
+                            console.log(res.data);
+                            if (!res.data.success) {
+                                this.$message.error(res.data.message);
+                            }
+                            else {
+                                this.$message.success(res.data.message);
+                            }
+                        });
                 }
-                else
-                {
+                else {
                     ElMessage({
                         type: 'error',
                         message: "请完成输入",
@@ -338,51 +334,52 @@
             })
         }
     }
-  }
-  
-  </script>
-  
-  <style>
-  #app {
+}
+
+
+</script>
+
+<style>
+#app {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -99999;
-  }
-  
-  * {
+}
+
+* {
     margin: 0;
     padding: 0;
-  }
-  
-  
-  .admin {
+}
+
+
+.admin {
     margin-left: 200px;
     padding: 10px;
     position: absolute;
     top: 110px;
-  }
-  
-  .headerContainer{
-  position: fixed;
-  top: 0px;
-  height: 100px;
-  width: 100%;
-  border-top: blue solid 2px;
-  border-bottom: lightgrey solid 2px;
-  background-color: white;
-  display: flex;
-  z-index: 99999999;
-  }
-  
-  .aside{
-  position: fixed;
-  top: 110px;
-  width: 100%;
-  }
-  
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 1000px;
-  }
-  </style>
+}
+
+.headerContainer {
+    position: fixed;
+    top: 0px;
+    height: 100px;
+    width: 100%;
+    border-top: blue solid 2px;
+    border-bottom: lightgrey solid 2px;
+    background-color: white;
+    display: flex;
+    z-index: 99999999;
+}
+
+.aside {
+    position: fixed;
+    top: 110px;
+    width: 100%;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 1000px;
+}
+</style>

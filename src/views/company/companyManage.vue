@@ -71,20 +71,18 @@
                 title="修改航班信息"
                 :direction="direction"
                 >
-                <el-form :model="Flightform" label-width="70px">
+                <el-form :model="Flightform" label-width="80px">
                     <el-form-item label="航班名称" class="login_input_box" prop="Name">
                     <el-input v-model="Flightform.Name" placeholder="请输入航班名称"></el-input>
                     </el-form-item>
 
                     <el-form-item label="起飞地点" class="login_input_box" prop="takeofflocation">
-                    <!--el-input v-model="Flightform.takeofflocation" placeholder="请输入起飞地点"></el-input-->
                         <el-cascader placeholder="起飞地" size="large" :options="options" v-model="selectedOptions"
                                     @change="handleChange">
                                 </el-cascader>
                     </el-form-item>
 
                     <el-form-item label="降落地点" class="login_input_box" prop="landinglocation">
-                    <!--el-input v-model="Flightform.landinglocation" placeholder="请输入降落地点"></el-input-->
                         <el-cascader placeholder="目的地" size="large" :options="options" v-model="selectedOptions2"
                                     @change="handleChange2">
                                 </el-cascader>
@@ -125,14 +123,12 @@
                     </el-form-item>
 
                     <el-form-item label="起飞地点" class="login_input_box" prop="takeofflocation">
-                    <!--el-input v-model="Flightform.takeofflocation" placeholder="请输入起飞地点"></el-input-->
                         <el-cascader placeholder="起飞地" size="large" :options="options" v-model="selectedOptions"
                                     @change="handleChange">
                                 </el-cascader>
                     </el-form-item>
 
                     <el-form-item label="降落地点" class="login_input_box" prop="landinglocation">
-                    <!--el-input v-model="Flightform.landinglocation" placeholder="请输入降落地点"></el-input-->
                         <el-cascader placeholder="目的地" size="large" :options="options" v-model="selectedOptions2"
                                     @change="handleChange2">
                                 </el-cascader>
@@ -242,8 +238,6 @@ import { ref } from 'vue';
 const direction = ref("btt");
 var dest = "";
 var from = "";
-//import companyChange from '@/components/companyChange.vue';
-//import { useStore } from 'vuex';
 export default{
   //
     data() {
@@ -420,7 +414,7 @@ export default{
                     else{
                         this.$message.success(res.data.message);
                         //添加成功后跳转到about页面
-                        setTimeout(() => {this.$router.push("/company")}, 1000);
+                        setTimeout(() => { this.$router.push("/company")}, 1000);
                     }
                 });
             }

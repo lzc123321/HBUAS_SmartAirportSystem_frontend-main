@@ -18,7 +18,6 @@ export default {
                 { name: "首页", index: 1 },
                 { name: "已购机票", index: 2 },
                 { name: "行李信息", index: 3 },
-                { name: "停车订单" , index: 4},
                 { name: "个人中心", index: 5},
             ],
         }

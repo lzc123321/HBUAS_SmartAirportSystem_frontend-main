@@ -20,20 +20,13 @@
                   </template>
                   <el-menu-item index="/admin">返回首页</el-menu-item>
                 </el-sub-menu>
-                <!-- <el-sub-menu index="2">
-                  <template #title>
-                    <el-icon><location /></el-icon>
-                    <span>停车位管理</span>
-                  </template>
-                  <el-menu-item index="/admin/parkingManage">停车位管理</el-menu-item>
-                </el-sub-menu>
                 <el-sub-menu index="3">
                   <template #title>
                     <el-icon><document /></el-icon>
                     <span>行李信息管理</span>
                   </template>
                   <el-menu-item index="/admin/luggagemanage">行李管理</el-menu-item>
-                </el-sub-menu> -->
+                </el-sub-menu>
                 <el-sub-menu index="4">
                   <template #title>
                     <el-icon><Promotion /></el-icon>
@@ -131,10 +124,7 @@
   import { ElMessage } from 'element-plus';
   import qs from 'qs';
   const position = window.localStorage.getItem("positionpost");
-  //import companyChange from '@/components/companyChange.vue';
-  //import { useStore } from 'vuex';
   export default{
-  //
     data() {
 
         return {
