@@ -16,7 +16,6 @@ import CompanySelfManage from "@/views/company/companySelfManage.vue"
 import TouristHome from "@/views/tourist/touristHome.vue"
 import TouristSelfInformation from "@/views/tourist/touristSelfInformation.vue"
 import TouristTicketManage from "@/views/tourist/touristTicketManagement.vue"
-import TouristPurchaseManage from "@/views/tourist/touristPurchaseManage.vue"
 import TouristSelfManage from "@/views/tourist/touristSelfManagement.vue"
 
 import AdminHome from "@/views/admin/adminHome.vue"
@@ -103,12 +102,6 @@ const routes = [
         name: "TouristTicketManage",
         path: '/tourist/ticketmanage',
         component: TouristTicketManage,
-    },
-
-    {
-        name: "TouristPurchaseManage",
-        path: '/tourist/purchasemanage',
-        component: TouristPurchaseManage,
     },
 
     {
